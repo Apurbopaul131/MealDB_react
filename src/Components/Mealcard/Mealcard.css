@@ -1,0 +1,7 @@
+.card-body{
+    position: relative;
+}
+.card-body .btn-viewDetials{
+    position: absolute;
+    bottom: 10px;
+}
