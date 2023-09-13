@@ -1,10 +1,11 @@
-import { useLoaderData } from "react-router-dom";
+/* eslint-disable react/prop-types */
 import "./Home.css";
 import Mealcard from "../Mealcard/Mealcard";
+import { useLoaderData } from "react-router-dom";
 
 const Home = () => {
     const mealData = useLoaderData();
-    const {meals} = mealData;
+    const {meals} = mealData;   
     return (
         <div className="card-container">
             {

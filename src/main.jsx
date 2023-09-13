@@ -5,9 +5,11 @@ import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Header from './Components/Header/Header.jsx';
 import Errorpage from './Components/Errorpage/Errorpage.jsx';
-import Home from './Components/Home/Home';
 import About from './Components/About/About';
 import Login from './Components/Login/Login';
+import Home from './Components/Home/Home';
+import Itemsearch from './Components/Itemsearch/Itemsearch';
+import searchControl from './extra';
 
 
 const router = createBrowserRouter([
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
         path:"/",
         element:<Home/>,
         loader:()=>fetch("https://www.themealdb.com/api/json/v1/1/search.php?f=a"),
+      },
+      {
+        path:"search/:searchName",
+        element:<Itemsearch/>,
+        loader:({params})=>{
+          const {searchName} = params;
+          return searchControl(searchName);
+        }
       },
       {
         path:"about",
