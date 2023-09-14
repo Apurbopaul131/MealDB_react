@@ -10,6 +10,7 @@ import Login from './Components/Login/Login';
 import Home from './Components/Home/Home';
 import Itemsearch from './Components/Itemsearch/Itemsearch';
 import searchControl from './extra';
+import Detials from './Components/Detilas/Detials';
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,14 @@ const router = createBrowserRouter([
         loader:({params})=>{
           const {searchName} = params;
           return searchControl(searchName);
+        }
+      },
+      {
+        path:"detials/:searchID",
+        element:<Detials/>,
+        loader:({params})=>{
+          const {searchID} = params;
+          return fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${searchID}`)
         }
       },
       {
